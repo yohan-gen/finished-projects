@@ -56,7 +56,7 @@ class passmanager() :
         passwords = self.loadpasswords()
         descriptions = list(passwords.keys())
         
-        print("Digite o número da senha que deseja editar/remover:")
+        print("Type the digit of the password you want to edit/delete : ")
         
         try :
             choice = int(input("> "))
@@ -64,10 +64,10 @@ class passmanager() :
                 selected_desc = descriptions[choice - 1]
                 
                 print(f"\n Selected password: {passwords[selected_desc]} -- {selected_desc}")
-                print("[1] Editar descrição")
-                print("[2] Editar senha")
-                print("[3] Remover senha")
-                print("[4] Cancelar")
+                print("[1] Edit description")
+                print("[2] Edit password")
+                print("[3] Remove password")
+                print("[4] Cancel")
                 
                 action = int(input("\n Choose an option: "))
                 
@@ -75,7 +75,7 @@ class passmanager() :
                     newdesc = input("\nNew description : ")
                     passwords[newdesc] = passwords.pop(selected_desc)
                     self.savePWS(passwords)
-                    print(f"✓ Descrição alterada para '{newdesc}'")
+                    print(f"✓ description edited to  '{newdesc}'")
                     
                 elif action == 2 :
                     newpwd = input("\n New password : ")
@@ -242,7 +242,7 @@ def main() :
                 syms = p.symbols()
                 
                 if not any([lowercase, uppercase, nums, syms]) :
-                    print("\n ❌ Error you need to select at least one element to compose your password")
+                    print("\n ❌ Error you need to select at least one element to compose your password ")
                     continue
                 
                 g = generator(length,lowercase, uppercase, nums, syms)
@@ -268,7 +268,7 @@ def main() :
                 save = input("Do you wish to save your password? yes or no : ").lower()
                 
                 if save == "yes" :
-                    description = input("Give your password a description")
+                    description = input("Give your password a description : ")
                     pm.addPWS(description, password)
             
             elif choice == 3 :
